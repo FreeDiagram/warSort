@@ -46,16 +46,17 @@ def playRound(p1deck,p2deck):
 
 def warSort(p1deck,p2deck):
     round = 0
-    if len(p1deck) == 0:
-        for x in range(26,52):
-            p1deck.append(p2deck[x])
-    elif len(p2deck) == 0:
-        for y in range(26,52):
-            p2deck.append(p1deck[y])
     while (p1deck != orderedDeck) or (p2deck != orderedDeck):
-        playRound(p1deck,p2deck)
-        round += 1
-    return "Completed After " + round + " rounds."		
+	    if len(p1deck) == 0:
+		    for x in range(26,52):
+			    p1deck.append(p2deck[x])
+	    elif len(p2deck) == 0:
+		    for y in range(26,52):
+			    p2deck.append(p1deck[y])
+	    else:
+		    playRound(p1deck,p2deck)
+		    round += 1
+    return round		
 
 #Test Cases warSort
 #p1 = deck
